@@ -71,7 +71,7 @@ Blockly.JavaScript['page_text'] = function(block) {
 Blockly.JavaScript['add_five'] = function(block) {
   var text_number = block.getFieldValue('number');
   // TODO: Assemble JavaScript into code variable.
-  var code = parseInt(text_number) + 5;
+  var code = String(parseInt(text_number) + 5 + ";")
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_ADDITION];
 };
@@ -80,6 +80,6 @@ Blockly.JavaScript['print_five'] = function(block) {
   var text_input = block.getFieldValue('INPUT');
   var value_statement = Blockly.JavaScript.valueToCode(block, 'statement', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = console.log(var text_input);
+  var code = "var i;\nfor (i = 0; i<5; i++){\n" + "alert(\"" + text_input +"\" + \" \" + i);\n}"
   return code;
 };
